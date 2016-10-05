@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Uyelik Formu</h2>
+
+<div class="panel panel-info">
+    <div class="panel-heading">Giriş Yapın</div>
+    <div class="panel-body">
+        
+            @if (ViewBag.GirisBasarisiz)       //Controler a gelen değişkeni tutar.
+            {
+            <div class="alert alert-success" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign"aria-hidden="true"></span>
+                <span class="sr-only">Yes:</span>
+                <b>Giriş yapıldı</b>
+            </div>
+            }
+            else
+            {
+                <div class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">No:</span>
+                    <b>Giriş yapılamadı</b>
+                </div>
+            }
+
+        <form class="form-group"method="post">
+            <label for="username">Kullanıcı Adı</label>
+            <input class="form-control"name="username"placeholder="Kullanıcı Adı" value="@Request.Form["username"]"/>
+            <label for="password">Kullanıcı Adı</label>
+            <input class="form-control"name="password"type="password" placeholder="Şifre"/>
+            <br />
+            <input type="submit" value="Gönder" class="form-control btn-primary"/>
+        </form>
+    </div>
+</div>
